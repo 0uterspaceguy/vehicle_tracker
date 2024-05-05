@@ -1,0 +1,14 @@
+.idea
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+models/*
+!models/.gitkeep
+
+drawed_videos/*
+!drawed_videos/.gitkeep
+
+original_videos/*
+!original_videos/.gitkeep

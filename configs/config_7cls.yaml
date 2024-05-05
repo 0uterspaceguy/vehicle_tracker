@@ -1,0 +1,87 @@
+Detector:
+  # weights_path: 'models/best.engine'
+  weights_path: 'models/best.onnx'
+
+  iou_threshold: 0.5
+  conf_threshold: 0.1
+
+  id2thr:
+    0: 0.5 # car
+    1: 0.5 # bus
+    2: 0.5 # truck 
+    3: 0.5 # moto
+    4: 0.1 # plate
+    5: 0.1 # driver
+    6: 0.1 # passanger
+
+  id2min_wh:
+    0: [100, 100] # car
+    1: [100, 100] # bus
+    2: [100, 100] # truck 
+    3: [100, 100] # moto
+    4: [30, 10] # plate
+    5: [30, 30] # driver
+    6: [30, 30] # passanger
+    
+  id2max_wh:
+    0: [1000, 1000] # car
+    1: [1500, 1500] # bus
+    2: [1500, 1500] # truck 
+    3: [500, 500] # moto
+    4: [300, 200] # plate
+    5: [300, 300] # driver
+    6: [300, 300] # passanger
+
+Tracker:
+  max_age: 7
+  min_hits: 2
+  main_threshold: 0.2
+
+  iou_weights: 
+    0: 1 # car
+    1: 1 # bus
+    2: 1 # truck 
+    3: 1 # moto
+    4: 0.1 # plate
+    5: 0.2 # driver
+    6: 0.2 # passanger
+
+  distance_weights: 
+    0: 0 # car
+    1: 0 # bus
+    2: 0 # truck 
+    3: 0 # moto
+    4: 0.6 # plate
+    5: 0.4 # driver
+    6: 0.4 # passanger
+
+  area_weights: 
+    0: 0.15 # car
+    1: 0.05 # bus
+    2: 0.1 # truck 
+    3: 0.2 # moto
+    4: 0.3 # plate
+    5: 0.4 # driver
+    6: 0.4 # passanger
+
+  iou_threshold: -1
+  distance_threshold: 500
+  area_threshold: 0.5
+
+Filter:
+  min_cutoff: 1.0 # Decreasing the minimum cutoff frequency decreases slow speed jitter
+  beta: 0.5 # Increasing the speed coefficient (beta) decreases speed lag
+
+Painter:
+  bbox_thickness: 3
+  labels: ['car', 'bus', 'truck', 'moto', 'plate', 'driver', 'passanger']
+  labels_to_paint: ['car', 'bus', 'truck', 'moto', 'plate', 'driver', 'passanger']
+
+# Reader:
+
+Writer:
+  fourcc: 'XVID'
+  fps: 25
+  size: [3840, 2160] # width, height
+
+

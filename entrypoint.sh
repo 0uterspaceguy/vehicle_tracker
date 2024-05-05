@@ -1,0 +1,1 @@
+python main.py --input=original_videos/camera_0_0.mkv --output drawed_videos/result.mp4 --config configs/config_7cls.yaml 
